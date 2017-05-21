@@ -50,7 +50,14 @@ public class MyAdapter extends BaseAdapter{
         View view = layoutInflater.inflate(R.layout.listview_layout, parent, false);
 
         //Initial View
+        titleTextView = (TextView) view.findViewById(R.id.txtTitle);
+        detailTextView = (TextView) view.findViewById(R.id.txtDetail);
+        imageView = (ImageView) view.findViewById(R.id.invIcon);
 
+        // Show View
+        titleTextView.setText(titleTextView[position]);
+
+        String strShortDetail = detailString[position].substring(0, 35) + " ...";
 
         return view;
     }
