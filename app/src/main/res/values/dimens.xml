@@ -2,4 +2,6 @@
 <resources>
     <dimen name="padding01">20dp</dimen>
     <dimen name="h1">20sp</dimen>
+    <dimen name="h2">15sp</dimen>
+    <dimen name="icon">120dp</dimen>
 </resources>
