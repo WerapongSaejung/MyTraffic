@@ -1,5 +1,6 @@
 package com.example.seajung.werapong.mytraffic;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +42,12 @@ public class TrafficActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Intent intent = new Intent(TrafficActivity.this, DetailActivity.class);
+                intent.putExtra("Title", titleStrings[position]);
+                intent.putExtra("Detail", detailStrings[position]);
+                intent.putExtra("Image", ints[position]);
+                startActivity(intent);
+
             }
         });
 
@@ -56,11 +63,11 @@ public class TrafficActivity extends AppCompatActivity {
         String tag = "21MayV1";
         String tag2 = "21MayV2";
 
-for (int i = 0; i < titleStrings.length; i++) {
-    Log.d(tag, "titleString(" + i + ") ==> " + titleStrings[i]);
-    Log.d(tag2, "detailString(" + i + ") ==> " + detailStrings[i]);
+        for (int i = 0; i < titleStrings.length; i++) {
+            Log.d(tag, "titleString(" + i + ") ==> " + titleStrings[i]);
+            Log.d(tag2, "detailString(" + i + ") ==> " + detailStrings[i]);
 
-}
+        }
 
     }
 
