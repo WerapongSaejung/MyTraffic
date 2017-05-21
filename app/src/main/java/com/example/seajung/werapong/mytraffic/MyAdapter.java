@@ -20,11 +20,10 @@ public class MyAdapter extends BaseAdapter{
     private TextView titleTextView, detailTextView;
     private ImageView imageView;
 
-    public MyAdapter(Context context,
-                     String[] titleStrings,
-                     int[] ints) {
+    public MyAdapter(Context context, String[] titleStrings, String[] detailString, int[] ints) {
         this.context = context;
         this.titleStrings = titleStrings;
+        this.detailString = detailString;
         this.ints = ints;
     }
 
@@ -55,9 +54,12 @@ public class MyAdapter extends BaseAdapter{
         imageView = (ImageView) view.findViewById(R.id.invIcon);
 
         // Show View
-        titleTextView.setText(titleTextView[position]);
+        titleTextView.setText(titleStrings[position]);
 
         String strShortDetail = detailString[position].substring(0, 35) + " ...";
+        detailTextView.setText(strShortDetail);
+
+        imageView.setImageResource(ints[position]);
 
         return view;
     }

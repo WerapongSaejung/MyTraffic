@@ -3,6 +3,7 @@ package com.example.seajung.werapong.mytraffic;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 
 public class TrafficActivity extends AppCompatActivity {
 
@@ -11,6 +12,7 @@ public class TrafficActivity extends AppCompatActivity {
     private MyDB myDB;
     private String[] titleStrings, detailStrings;
     private int[] ints;
+    private ListView listView;
 
 
     @Override
@@ -21,7 +23,19 @@ public class TrafficActivity extends AppCompatActivity {
         //Get Value for MyDB
         getValueMyDB();
 
+        //Create List Views
+        createListView();
+
     }// Main Method
+
+    private void createListView() {
+
+        // Initial Views
+        listView = (ListView) findViewById(R.id.livtraffic);
+        MyAdapter myAdapter = new MyAdapter(this, titleStrings, detailStrings, ints);
+        listView.setAdapter(myAdapter);
+
+    }
 
     private void getValueMyDB() {
         myDB = new MyDB();
